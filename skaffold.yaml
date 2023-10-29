@@ -1,9 +1,0 @@
-apiVersion: skaffold/v4beta7
-kind: Config
-metadata:
-  name: fantasy-data-loader
-build:
-  artifacts:
-    - image: fantasy-data-loader
-      buildpacks:
-        builder: gcr.io/buildpacks/builder:v1
