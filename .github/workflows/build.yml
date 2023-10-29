@@ -39,7 +39,7 @@ jobs:
           check-latest: true
           cache: maven
       - name: Build with Maven
-        run: mvn --batch-mode --show-version deploy
+        run: mvn --batch-mode --show-version verify
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Log in to the Container registry
