@@ -11,12 +11,10 @@ spec:
   parallelism: 1
   template:
     metadata:
-      name: { { include "fantasy-data-loader.fullname" . } }
-      labels:
-        { { - include "fantasy-data-loader.labels" . | nindent 4 } }
+      name: fantasy-data-loader-pod
     spec:
       containers:
-        - name: fantasy-football-data-loader
+        - name: fantasy-data-loader
           image: ghcr.io/rohanaditeya/fantasy-football-data-loader:main
           imagePullPolicy: Always
       restartPolicy: Never

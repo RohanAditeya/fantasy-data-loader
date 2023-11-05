@@ -31,9 +31,3 @@ keywords:
 maintainers:
   - email: rohan.aditeya@gmail.com
     name: Rohan Aditeya
-dependencies:
-  - name: cockroachdb
-    repository: https://charts.cockroachdb.com/
-    version: 11.2.x
-    condition: data-loader-cockroach-cluster.enabled
-    alias: data-loader-cockroach-cluster
