@@ -60,4 +60,11 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: Package and publish helm chart
+        uses: alexellis/arkade-get@master
+        with:
+          kubectl: latest
+          helm: latest
+        run: |
+          helm package fantasy-data-loader -u && helm registry login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} && helm push fantasy-data-loader-0.1.0.tgz ${{ env.REGISTRY }}
     timeout-minutes: 20
