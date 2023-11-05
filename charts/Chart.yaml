@@ -1,5 +1,5 @@
 apiVersion: v2
-name: fantasy-data-loader
+name: fantasy-data-loader-chart
 description: Fantasy football loader call the public fantasy premier league API to load the response data to the fantasy football APIs
 
 # A chart can be either an 'application' or a 'library' chart.
