@@ -64,7 +64,7 @@ jobs:
         run: |
           echo "REPO_OWNER=${GITHUB_ACTOR,,}" >>${GITHUB_ENV}
       - name: Helm package
-        uses: rarchk/action-helm-tools@v1.1.0
+        uses: rarchk/action-helm-tools@v1.0.15
         with:
           action: package
         env:
@@ -74,7 +74,7 @@ jobs:
           ARTIFACTORY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Helm publish artifactory
-        uses: rarchk/action-helm-tools@v1.1.0
+        uses: rarchk/action-helm-tools@v1.0.15
         with:
           action: publish-artifactory
         env:
