@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: fantasy-data-loader
-  cloud:
-    task:
-      closecontext-enabled: true
