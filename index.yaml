@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  fantasy-data-loader-chart:
+  - apiVersion: v2
+    appVersion: 1.0-SNAPSHOT
+    created: "2023-11-05T10:57:03.586624369Z"
+    description: Fantasy football loader call the public fantasy premier league API
+      to load the response data to the fantasy football APIs
+    digest: 2ca95c4440fca72c8afb56517973c444708b71066e679866271c74dd349298d8
+    keywords:
+    - spring-boot
+    - spring-cloud
+    - spring-cloud-task
+    maintainers:
+    - email: rohan.aditeya@gmail.com
+      name: Rohan Aditeya
+    name: fantasy-data-loader-chart
+    sources:
+    - https://github.com/RohanAditeya/fantasy-football-data-loader
+    type: application
+    urls:
+    - https://github.com/RohanAditeya/fantasy-data-loader/releases/download/fantasy-data-loader-chart-0.0.1/fantasy-data-loader-chart-0.0.1.tgz
+    version: 0.0.1
+generated: "2023-11-05T10:57:03.586638769Z"
