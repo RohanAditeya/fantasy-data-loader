@@ -80,22 +80,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-# Enable flag and override values for cockroach DB helm dependency
-data-loader-cockroach-cluster:
-  enabled: true
-  tls:
-    enabled: false # for insecure deployments
-  statefulset:
-    replicas: 2
-    resources:
-      limits:
-        memory: "1Gi"
-      requests:
-        memory: "1Gi"
-  conf:
-    cache: "300Mi"
-    max-sql-memory: "300Mi"
-  storage:
-    persistentVolume:
-      size: "1500Mi"
