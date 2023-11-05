@@ -62,13 +62,24 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: downcase USER
         run: |
-          echo "REPO=${GITHUB_ACTOR,,}" >>${GITHUB_ENV}
-      - name: Install helm and kubectl
-        uses: alexellis/arkade-get@master
+          echo "REPO_OWNER=${GITHUB_ACTOR,,}" >>${GITHUB_ENV}
+      - name: Helm package
+        uses: rarchk/action-helm-tools@v1.1.0
         with:
-          kubectl: latest
-          helm: latest
-      - name: Package and publish helm chart to github registry
-        run: |
-          helm package fantasy-data-loader -u && helm registry login ${{ env.REGISTRY }} -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} && helm push fantasy-data-loader-0.1.0.tgz oci://${{ env.REGISTRY }}/${{ env.REPO }}
+          action: package
+        env:
+          CHART_DIR: ${{ github.event.repository.name }}
+          ARTIFACTORY_URL: oci://${{ env.REGISTRY }}/${{ env.REPO_OWNER }}
+          ARTIFACTORY_USERNAME: ${{ github.actor }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Helm publish artifactory
+        uses: rarchk/action-helm-tools@v1.1.0
+        with:
+          action: publish-artifactory
+        env:
+          CHART_DIR: ${{ github.event.repository.name }}
+          ARTIFACTORY_URL: oci://${{ env.REGISTRY }}/${{ env.REPO_OWNER }}
+          ARTIFACTORY_USERNAME: ${{ github.actor }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
     timeout-minutes: 20
