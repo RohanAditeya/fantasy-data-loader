@@ -1,5 +1,5 @@
 apiVersion: v2
-name: fantasy-data-loader-chart
+name: fantasy-data-loader
 description: Fantasy football loader call the public fantasy premier league API to load the response data to the fantasy football APIs
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -23,7 +23,7 @@ version: 0.0.1
 # It is recommended to use it with quotes.
 appVersion: "1.0-SNAPSHOT"
 sources:
-  - https://github.com/RohanAditeya/fantasy-football-data-loader
+  - https://github.com/RohanAditeya/fantasy-data-loader
 keywords:
   - spring-boot
   - spring-cloud
