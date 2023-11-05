@@ -60,6 +60,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: downcase USER
+        run: |
+          echo "REPO=${{ github.actor }}" >>${GITHUB_ENV}
       - name: Install helm and kubectl
         uses: alexellis/arkade-get@master
         with:
@@ -67,5 +70,5 @@ jobs:
           helm: latest
       - name: Package and publish helm chart to github registry
         run: |
-          helm package fantasy-data-loader -u && helm registry login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} && helm push fantasy-data-loader-0.1.0.tgz ${{ env.REGISTRY }}
+          helm package fantasy-data-loader -u && helm registry login ${{ env.REGISTRY }} -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} && helm push fantasy-data-loader-0.1.0.tgz oci://${{ env.REGISTRY }}/${{ env.REPO }}
     timeout-minutes: 20
