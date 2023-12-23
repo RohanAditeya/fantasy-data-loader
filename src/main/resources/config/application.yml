@@ -4,3 +4,18 @@ spring:
   cloud:
     task:
       closecontext-enabled: true
+  flyway:
+    locations: classpath:db/migration/{vendor}
+    fail-on-missing-locations: true
+    default-schema: dev
+    create-schemas: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://cockroach.domain.com:26257/fantasy_football
+    username: root
+    hikari:
+      max-pool-size: 5
+      schema: dev
+      pool-name: data-loader-dev
+      data-source-properties:
+        sslmode: disable
