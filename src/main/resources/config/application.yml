@@ -7,11 +7,9 @@ spring:
   flyway:
     locations: classpath:db/migration/{vendor}
     fail-on-missing-locations: true
-    default-schema: dev
-    create-schemas: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://cockroach.domain.com:26257/fantasy_football
+    url: jdbc:postgresql://cockroach.domain.com:26257/defaultdb
     username: root
     hikari:
       max-pool-size: 5
