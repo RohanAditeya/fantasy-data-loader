@@ -1,19 +1,17 @@
 spring:
   application:
-    name: fantasy-data-loader
+    name: fantasy-data-loader-task
   cloud:
     task:
       closecontext-enabled: true
-  flyway:
-    locations: classpath:db/migration/{vendor}
-    fail-on-missing-locations: true
+      single-instance-enabled: true
+      observation:
+        enabled: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://cockroach.domain.com:26257/defaultdb
     username: root
     hikari:
       max-pool-size: 5
       schema: dev
-      pool-name: data-loader-dev
       data-source-properties:
         sslmode: disable

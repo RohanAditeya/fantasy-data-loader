@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://cockroach.domain.com:26257/fantasy_football
+    hikari:
+      pool-name: data-loader-local

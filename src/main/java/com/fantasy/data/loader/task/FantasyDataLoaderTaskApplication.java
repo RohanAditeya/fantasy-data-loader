@@ -1,4 +1,4 @@
-package com.fantasy.data.loader;
+package com.fantasy.data.loader.task;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
