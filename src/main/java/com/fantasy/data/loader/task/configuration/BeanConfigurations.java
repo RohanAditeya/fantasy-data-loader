@@ -1,8 +1,10 @@
 package com.fantasy.data.loader.task.configuration;
 
+import com.fantasy.data.loader.task.client.FantasyFootballWebApiClient;
 import com.fantasy.data.loader.task.client.FantasyPremierLeagueApiClient;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -33,5 +35,13 @@ public class BeanConfigurations {
         RestClientAdapter restClientAdapter = RestClientAdapter.create(restClient);
         HttpServiceProxyFactory serviceProxyFactory = HttpServiceProxyFactory.builderFor(restClientAdapter).build();
         return serviceProxyFactory.createClient(FantasyPremierLeagueApiClient.class);
+    }
+
+    @Bean
+    public FantasyFootballWebApiClient fantasyFootballWebApiClient (@Value(value = "${fantasy-football-api.host}") String fantasyFootballWebApiHost) {
+        RestClient restClient = RestClient.builder().baseUrl(fantasyFootballWebApiHost).build();
+        RestClientAdapter restClientAdapter = RestClientAdapter.create(restClient);
+        HttpServiceProxyFactory serviceProxyFactory = HttpServiceProxyFactory.builderFor(restClientAdapter).build();
+        return serviceProxyFactory.createClient(FantasyFootballWebApiClient.class);
     }
 }
