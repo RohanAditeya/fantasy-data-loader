@@ -26,7 +26,7 @@ public class LeagueTeamServiceImpl implements LeagueTeamService {
 
     @Override
     public void convertAndWriteLeagueTeamRecords(List<ApiClientResponseDTO.LeagueTeamResponseDTO> leagueTeamResponseDTOS) {
-        leagueTeamResponseDTOS.stream().map(this::convertToEntity).forEach(fantasyFootballWebApiClient::createLeagueTeamPlayer);
+        leagueTeamResponseDTOS.stream().map(this::convertToEntity).forEach(fantasyFootballWebApiClient::createLeagueTeam);
         log.atInfo().addMarker(MarkerFactory.getMarker(BOOTSTRAP_CALL_LOG_MARKER)).log("Finished calling create league team API for {} teams", leagueTeamResponseDTOS.size());
     }
 

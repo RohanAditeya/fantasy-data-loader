@@ -9,7 +9,7 @@ public class ApiClientResponseDTO {
             , int strength, String teamDivision, boolean unavailable, int win, int strengthOverallHome, int strengthOverallAway, int strengthAttackHome, int strengthAttackAway
             , int strengthDefenceHome, int strengthDefenceAway, int pulseId) {}
 
-    public record LeaguePlayerResponseDTO (int code, String firstName, String secondName, Integer squadNumber, Character status, int teamCode, String webName
+    public record LeaguePlayerResponseDTO (Long code, String firstName, String secondName, Integer squadNumber, Character status, int teamCode, String webName
             , Integer chanceOfPlayingNextRound, Integer chanceOfPlayingThisRound, Integer dreamteamCount, Float epNext, Float epThis, Integer eventPoints, Boolean inDreamteam
             , Float form, Integer nowCost, Float pointsPerGame, Float selectedByPercent, Integer totalPoints, Long transfersIn, Long transfersOut, Float valueForm
             , Float valueSeason, Integer bonus, Integer bps, Float expectedGoals, Float expectedAssists, Float expectedGoalInvolvements, Float expectedGoalsConceded
