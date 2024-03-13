@@ -23,6 +23,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.framework.another.boot</groupId>
+            <artifactId>another-boot-starter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.fantasy.football</groupId>
             <artifactId>fantasy-football-model</artifactId>
             <version>${fantasy-football-model.version}</version>
@@ -72,8 +76,19 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/RohanAditeya/fantasy-data-loader</url>
+        </repository>
+    </distributionManagement>
 
     <repositories>
         <repository>
@@ -85,5 +100,12 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <scm>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <url>https://github.com/RohanAditeya/fantasy-data-loader.git</url>
+        <tag>head</tag>
+    </scm>
 
 </project>

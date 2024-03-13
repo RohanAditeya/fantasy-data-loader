@@ -1,5 +1,13 @@
-FROM amazoncorretto:21.0.1
-COPY ./target/fantasy-data-loader-1.0-SNAPSHOT.jar /app/
-WORKDIR /app/
-RUN jar -xvf /app/fantasy-data-loader-1.0-SNAPSHOT.jar
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+FROM amazoncorretto:21 as builder
+WORKDIR application
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} application.jar
+RUN java -Djarmode=layertools -jar application.jar extract
+
+FROM amazoncorretto:21
+WORKDIR application
+COPY --from=builder application/dependencies/ ./
+COPY --from=builder application/spring-boot-loader/ ./
+COPY --from=builder application/snapshot-dependencies/ ./
+COPY --from=builder application/application/ ./
+CMD java $JAVA_OPTS org.springframework.boot.loader.launch.JarLauncher
