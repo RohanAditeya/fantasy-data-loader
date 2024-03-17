@@ -10,7 +10,7 @@
 
     <groupId>com.fantasy.football</groupId>
     <artifactId>fantasy-data-loader-task</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -103,7 +103,7 @@
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
         <url>https://github.com/RohanAditeya/fantasy-data-loader.git</url>
-        <tag>fantasy-data-loader-task-1.0.3</tag>
+        <tag>head</tag>
     </scm>
 
 </project>
