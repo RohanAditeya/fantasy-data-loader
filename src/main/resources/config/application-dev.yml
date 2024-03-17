@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://cloud-postgresql.postgres.svc.cluster.local:5432/fantasy_football
+    hikari:
+      pool-name: data-loader-dev
+fantasy-football-api:
+  host: http://web-api-fantasy-football-web-api.fantasy-football.svc.cluster.local

@@ -9,7 +9,8 @@ spring:
         enabled: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: root
+    username: postgres
+    password: admin
     hikari:
       max-pool-size: 5
       schema: dev
