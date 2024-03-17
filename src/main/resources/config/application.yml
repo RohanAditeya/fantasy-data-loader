@@ -13,6 +13,6 @@ spring:
     password: admin
     hikari:
       max-pool-size: 5
-      schema: dev
+      schema: public
       data-source-properties:
         sslmode: disable
