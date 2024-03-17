@@ -4,4 +4,4 @@ spring:
     hikari:
       pool-name: data-loader-dev
 fantasy-football-api:
-  host: http://web-api-fantasy-football-web-api.fantasy-football.svc.cluster.local
+  host: http://web-api-fantasy-football-web-api.fantasy-football.svc.cluster.local:8080
